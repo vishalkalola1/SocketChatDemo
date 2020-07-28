@@ -424,10 +424,10 @@ class SocketManagerAPI: NSObject {
                         completion(dataDict,nil)
                     }
                 }else{
-                    completion(nil,"data Not availabel")
+                    completion(nil,"data Not available")
                 }
             }else{
-                completion(nil,"data Not availabel")
+                completion(nil,"data Not available")
             }
         }
     }
