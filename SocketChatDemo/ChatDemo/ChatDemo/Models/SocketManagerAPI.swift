@@ -423,10 +423,10 @@ class SocketManagerAPI: NSObject {
                     let dataDict = arrayData[0]
                     completion(dataDict,nil)
                 } else {
-                    completion(nil,"data Not availabel")
+                    completion(nil,"data Not available")
                 }
             } else {
-                completion(nil,"data Not availabel")
+                completion(nil,"data Not available")
             }
         }
     }
@@ -434,7 +434,7 @@ class SocketManagerAPI: NSObject {
     func userSignUp(_ data:[String:Any], completion:@escaping completionHandler) -> Void {
         socket.emitWithAck("SignUp",data).timingOut(after: 0) { (data) in
             print("got data \(data)")
-            guard let data = data[0] as? [String:Any] else { completion(nil,"data Not availabel"); return }
+            guard let data = data[0] as? [String:Any] else { completion(nil,"data Not available"); return }
             completion(data,nil)
         }
     }
@@ -442,7 +442,7 @@ class SocketManagerAPI: NSObject {
     func sendMessage(_ params : [String:Any], ackCallBack:@escaping completionHandler) -> Void {
         socket.emitWithAck("sendMessage", params).timingOut(after: 0) { data in
             print("got message")
-            guard let data = data[0] as? [String:Any] else { ackCallBack(nil,"data Not availabel"); return }
+            guard let data = data[0] as? [String:Any] else { ackCallBack(nil,"data Not available"); return }
             ackCallBack(data,nil)
         }
         print(socket.sid)
@@ -451,7 +451,7 @@ class SocketManagerAPI: NSObject {
     func sendBroadcastMessage(_ params : [[String:Any]], ackCallBack:@escaping completionHandlerArray) -> Void {
         socket.emitWithAck("sendbroadcastMessage", params).timingOut(after: 0) { data in
             print("got message")
-            guard let data = data[0] as? [[String:Any]] else { ackCallBack(nil,"data Not availabel"); return }
+            guard let data = data[0] as? [[String:Any]] else { ackCallBack(nil,"data Not available"); return }
             ackCallBack(data,nil)
         }
         print(socket.sid)
@@ -466,7 +466,7 @@ class SocketManagerAPI: NSObject {
     func getChatID(_ params : [String:Any], ackCallBack:@escaping completionHandler) -> Void {
         socket.emitWithAck("GetChatId", params).timingOut(after: 0) { data in
             print("got message")
-            guard let data1 = data[0] as? [String:Any] else { ackCallBack(nil,"data Not availabel"); return }
+            guard let data1 = data[0] as? [String:Any] else { ackCallBack(nil,"data Not available"); return }
             ackCallBack(data1,nil)
         }
     }
@@ -474,8 +474,8 @@ class SocketManagerAPI: NSObject {
     func createGroup(_ params : [String:Any], ackCallBack:@escaping completionHandler) -> Void {
         socket.emitWithAck("CreateGroup", params).timingOut(after: 0) { data in
             print("got message")
-            guard let data1 = data[0] as? [[String:Any]] else { ackCallBack(nil,"data Not availabel"); return }
-            guard let data2 = data1[0]  as? [String:Any] else { ackCallBack(nil,"data Not availabel"); return }
+            guard let data1 = data[0] as? [[String:Any]] else { ackCallBack(nil,"data Not available"); return }
+            guard let data2 = data1[0]  as? [String:Any] else { ackCallBack(nil,"data Not available"); return }
             ackCallBack(data2,nil)
         }
     }
