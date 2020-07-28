@@ -181,10 +181,10 @@ class MTPLAPIManager: NSObject {
         if reachability.connection != .none {
             isInternetReachable = true
            
-            print("internet availabel")
+            print("internet available")
         } else {
             isInternetReachable = false
-            print("internet not availabel")
+            print("internet not available")
         }
     }
     
